@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculation Results</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        h2 {
+            font-size: 1.7em;
+        }
+        .list-group {
+            font-size: 1.3em;
+        }
+        .list-group-item {
+            font-size: 1.2em;
+        }
+        .badge {
+            font-size: 18px; 
+        }
+    </style>
+</head>
+<body class="p-4 bg-light">
+    <div class="container">
+        <!-- Ingredient usage detailed table -->
+        <h4>Ingredient Usage Summary</h4>
+        <table class="table table-bordered bg-white shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Required per Product Unit</th>
+                    <th>Cost Per Unit</th>
+                    <th>Total Quantity Used</th>
+                    <th>Total Remaining Unit</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through each ingredient and display data -->
+                {% for ing in ingredients %}
+                <tr>
+                    <td>{{ ing.name }}</td>
+                    <td>{{ ing.required_per_unit }} {{ ing.required_unit }}</td>
+                    <td>₱{{ ing.cost_per_unit }}</td>
+                    <td>{{ ing.total_used }} {{ ing.available_unit }}</td>
+                    <td>{{ ing.remaining_qty }} {{ ing.available_unit }}</td>
+                    <td>₱{{ ing.total_cost }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot class="table-light">
+                <!-- Summary totals for costs -->
+                <tr>
+                    <th colspan="4" class="text-end">Total Raw Cost</th>
+                    <th>₱{{ raw_total }}</th>
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-end">Total Overhead Cost</th>
+                    <th>₱{{ fixed_cost }}</th>
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-end">Total Overall Cost</th>
+                    <th class="text-danger"> ₱{{ total_cost }}</th>
+                </tr>
+            </tfoot>
+        </table>
+        <!-- Page heading with product name -->
+        <h2 class="mb-4">Production Report for <span class="text-primary">{{ product_name }}</span></h2>
+        
+        <!-- Summary list of production and cost info -->
+        <ul class="list-group shadow-sm mb-4">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Max producible units
+                <span class="badge bg-primary rounded-pill">{{ max_units }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total raw cost
+                <span class="badge bg-success rounded-pill">₱{{ raw_total }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Overall Cost
+                <span class="badge bg-warning rounded-pill">₱{{ total_cost }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Cost per unit
+                <span class="badge bg-info rounded-pill">₱{{ cost_per_unit }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Revenue
+                <span class="badge bg-warning text-dark rounded-pill">₱{{ revenue }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Profit
+                <span class="badge bg-danger rounded-pill">₱{{ profit }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Break-even units
+                <span class="badge bg-secondary rounded-pill">{{ break_even_units }}</span>
+            </li>
+        </ul>
+        <!-- Back button to return to previous page -->
+        <a class="btn btn-outline-secondary mt-4" href="/">← Back</a>
+    </div>
+</body>
+</html>

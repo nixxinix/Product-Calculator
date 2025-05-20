@@ -1,0 +1,63 @@
+[
+    {
+        "name": "Energy Drink",
+        "ingredients": [
+            {
+                "name": "Water",
+                "available_unit": "l",
+                "available_qty": 500,
+                "required_unit": "l",
+                "required_per_unit": 0.3,
+                "cost_per_unit": 5
+            },
+            {
+                "name": "Sugar",
+                "available_unit": "kg",
+                "available_qty": 30,
+                "required_unit": "kg",
+                "required_per_unit": 0.04,
+                "cost_per_unit": 20
+            },
+            {
+                "name": "Caffeine Powder",
+                "available_unit": "g",
+                "available_qty": 500,
+                "required_unit": "g",
+                "required_per_unit": 0.2,
+                "cost_per_unit": 2.5
+            },
+            {
+                "name": "Citric Acid",
+                "available_unit": "g",
+                "available_qty": 2000,
+                "required_unit": "g",
+                "required_per_unit": 2,
+                "cost_per_unit": 0.3
+            },
+            {
+                "name": "Flavoring Syrup",
+                "available_unit": "ml",
+                "available_qty": 2000,
+                "required_unit": "ml",
+                "required_per_unit": 5,
+                "cost_per_unit": 1
+            },
+            {
+                "name": "Bottle and Cap",
+                "available_unit": "pcs",
+                "available_qty": 1000,
+                "required_unit": "pcs",
+                "required_per_unit": 1,
+                "cost_per_unit": 5
+            },
+            {
+                "name": "Label Stickers",
+                "available_unit": "pcs",
+                "available_qty": 2000,
+                "required_unit": "pcs",
+                "required_per_unit": 1,
+                "cost_per_unit": 2
+            }
+        ]
+    }
+]
